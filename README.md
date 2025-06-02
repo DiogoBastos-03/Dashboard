@@ -1,54 +1,36 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Desafio Dashboard
 
-Currently, two official plugins are available:
+Projeto desenvolvido como parte de um desafio técnico com foco na criação de um dashboard interativo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack utilizada
 
-## Expanding the ESLint configuration
+**Front-end:** React, typeScript, TailwindCSS, recharts, lucide-react, headlessui, react-router-dom
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+
+
+## Instalação
+
+Instale my-project com npm
+
+```bash
+  git clone https://github.com/DiogoBastos-03/Dashboard.git
+  cd Dashboard
+  npm install
+  npm run dev
 ```
+    
+## Funcionalidades
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Gráficos interativos com filtros por período (semana, mês, semestre)
+- Listagem de tarefas com status e prioridade
+- Visualização de usuários ativos
+- Navegação com sistema de rotas
+- Layout totalmente responsivo com TailwindCSS
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Aprendizados
+
+Esse projeto foi uma oportunidade de reforçar tecnologias que já utilizo no dia a dia, como React e TailwindCSS. Trabalhei com atenção especial na responsividade da interface, garantindo uma boa experiência em diferentes tamanhos de tela. Além disso, pude aplicar boas práticas de desenvolvimento, como a reutilização de componentes e a organização do código, tornando o projeto mais escalável e fácil de manter.
+
