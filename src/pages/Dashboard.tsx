@@ -168,11 +168,11 @@ export default function Dashboard() {
               Últimas Tasks Criadas
             </h2>
 
-            <div className="grid grid-cols-5 text-xs font-semibold text-gray-500 border-b pb-2 mb-2">
-              <span>Tarefa</span>
+            <div className="grid grid-cols-3 md:grid-cols-5 text-xs font-semibold text-gray-500 border-b pb-2 mb-2">
+              <span className="hidden md:block">Tarefa</span>
               <span>Responsável</span>
               <span>Prioridade</span>
-              <span>Tipo</span>
+              <span className="hidden md:block">Tipo</span>
               <span>Progresso</span>
             </div>
 
@@ -180,9 +180,12 @@ export default function Dashboard() {
               {ultimasTasks.map((task, index) => (
                 <div
                   key={index}
-                  className="grid grid-cols-5 items-center text-sm text-gray-700"
+                  className="grid grid-cols-3 md:grid-cols-5 items-center text-sm text-gray-700 gap-x-2 md:gap-x-6"
                 >
-                  <span className="truncate">{task.descricao}</span>
+                  <span className="hidden md:block truncate">
+                    {task.descricao}
+                  </span>
+
                   <div className="flex items-center gap-2">
                     <img
                       src={`https://ui-avatars.com/api/?name=${encodeURIComponent(
@@ -193,6 +196,7 @@ export default function Dashboard() {
                     />
                     <span className="truncate">{task.usuario}</span>
                   </div>
+
                   <span
                     className={`px-2 py-0.5 rounded-full text-xs font-medium w-fit ${
                       task.prioridade === "Alta"
@@ -204,8 +208,9 @@ export default function Dashboard() {
                   >
                     {task.prioridade}
                   </span>
+
                   <span
-                    className={`px-2 py-0.5 rounded-full text-xs font-medium w-fit ${
+                    className={`hidden md:inline px-2 py-0.5 rounded-full text-xs font-medium w-fit ${
                       task.tipo === "Wireframe"
                         ? "bg-blue-100 text-blue-600"
                         : task.tipo === "Graphics"
