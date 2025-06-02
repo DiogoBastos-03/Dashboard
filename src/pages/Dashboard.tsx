@@ -1,15 +1,29 @@
 import PageContainer from "../components/PageContainer";
 import GraphicsCard from "../components/graphics/GraphicsCard";
 
-const dados: { dia: string; horas: number }[] = [
-  { dia: "Seg", horas: 6 },
-  { dia: "Ter", horas: 8 },
-  { dia: "Qua", horas: 5 },
-  { dia: "Qui", horas: 7 },
-  { dia: "Sex", horas: 4 },
-  { dia: "Sáb", horas: 2 },
-  { dia: "Dom", horas: 0 },
-];
+const dadosPorPeriodo = {
+  semana: [
+    { dia: "Seg", horas: 6 },
+    { dia: "Ter", horas: 5 },
+    { dia: "Qua", horas: 7 },
+    { dia: "Qui", horas: 6 },
+    { dia: "Sex", horas: 8 },
+  ],
+  mes: [
+    { dia: "Semana 1", horas: 22 },
+    { dia: "Semana 2", horas: 18 },
+    { dia: "Semana 3", horas: 25 },
+    { dia: "Semana 4", horas: 30 },
+  ],
+  semestre: [
+    { dia: "Jan", horas: 110 },
+    { dia: "Fev", horas: 95 },
+    { dia: "Mar", horas: 100 },
+    { dia: "Abr", horas: 120 },
+    { dia: "Mai", horas: 105 },
+    { dia: "Jun", horas: 115 },
+  ],
+};
 
 const dadosLinha = [
   { dia: "Seg", tasks: 2 },
@@ -96,7 +110,10 @@ const ultimasTasks = [
   },
 ];
 
-const totalHoras = dados.reduce((soma, dia) => soma + dia.horas, 0);
+const totalHoras = dadosPorPeriodo.semana.reduce(
+  (soma, dia) => soma + dia.horas,
+  0
+);
 const totalTasks = dadosLinha.reduce((soma, dia) => soma + dia.tasks, 0);
 
 export default function Dashboard() {
@@ -112,11 +129,11 @@ export default function Dashboard() {
               titulo="Horas Trabalhadas na Semana"
               valor={`${totalHoras}h`}
               rotulo="Total semanal"
-              dados={dados}
+              dados={dadosPorPeriodo}
               dataKey="horas"
               labelKey="dia"
               fillColor="#FACC15"
-              altura={325}
+              altura={331}
             />
             <div className="flex flex-col gap-4">
               <GraphicsCard
@@ -128,7 +145,7 @@ export default function Dashboard() {
                 dataKey="value"
                 fillColor="#6EE7B7"
                 invertido={true}
-                altura={90}
+                altura={65}
               />
               <GraphicsCard
                 tipo="line"
@@ -140,7 +157,7 @@ export default function Dashboard() {
                 labelKey="dia"
                 fillColor="#FACC15"
                 invertido={true}
-                altura={90}
+                altura={65}
               />
             </div>
           </div>
